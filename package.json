@@ -1,0 +1,8 @@
+{
+  "name": "github-readme-youtube-music",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kentakang/github-readme-youtube-music",
+  "author": "Chan Kang <me@kentakang.com>",
+  "license": "MIT"
+}

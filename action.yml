@@ -1,0 +1,17 @@
+name: 'github-readme-youtube-music'
+description: 'Recent played song on YT Music insert to Github README'
+author: kentakang
+
+inputs:
+  account-id:
+    description: 'ID of Youtube Music'
+    required: true
+    default: ''
+  account-password:
+    description: 'Password of Youtube Music'
+    required: true
+    default: ''
+
+runs:
+  using: node12
+  main: dist/index.js
