@@ -1,5 +1,5 @@
 import core from '@actions/core';
-import http, { RequestOptions, ServerResponse } from 'http';
+import http, { RequestOptions } from 'http';
 
 try {
   const youtubeId = core.getInput('account-id');
