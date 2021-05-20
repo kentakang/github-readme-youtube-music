@@ -1,9 +1,9 @@
-import core from '@actions/core';
+import { getInput, setFailed } from '@actions/core';
 import http, { RequestOptions } from 'http';
 
 try {
-  const youtubeId = core.getInput('account-id');
-  const youtubePw = core.getInput('account-password');
+  const youtubeId = getInput('account-id');
+  const youtubePw = getInput('account-password');
   const requestOptions: RequestOptions = {
     hostname: 'music.youtube.com',
     path: '/',
@@ -21,5 +21,5 @@ try {
     });
   });
 } catch (error) {
-  core.setFailed(error.message);
+  setFailed(error.message);
 }
