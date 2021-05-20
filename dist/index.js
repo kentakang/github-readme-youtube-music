@@ -2838,30 +2838,6 @@ module.exports = require("util");;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -2892,9 +2868,6 @@ __nccwpck_require__.r(__webpack_exports__);
 var core = __nccwpck_require__(186);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = require("child_process");;
-// EXTERNAL MODULE: ./node_modules/puppeteer-extra-plugin-stealth/index.js
-var puppeteer_extra_plugin_stealth = __nccwpck_require__(561);
-var puppeteer_extra_plugin_stealth_default = /*#__PURE__*/__nccwpck_require__.n(puppeteer_extra_plugin_stealth);
 ;// CONCATENATED MODULE: ./src/index.ts
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -2935,14 +2908,14 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 /* eslint-disable global-require */
 
 
-
 console.log('installing puppeteer');
 (0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function () {
     try {
         var puppeteer_1 = __nccwpck_require__(750);
+        var stealthPlugin = __nccwpck_require__(561);
         var youtubeId_1 = (0,core.getInput)('account-id');
         var youtubePw_1 = (0,core.getInput)('account-password');
-        puppeteer_1.use(puppeteer_extra_plugin_stealth_default()());
+        puppeteer_1.use(stealthPlugin());
         (function () { return __awaiter(void 0, void 0, void 0, function () {
             var browser, page, data;
             return __generator(this, function (_a) {
