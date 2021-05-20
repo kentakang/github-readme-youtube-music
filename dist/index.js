@@ -497,6 +497,8 @@ __nccwpck_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(186);
+;// CONCATENATED MODULE: external "child_process"
+const external_child_process_namespaceObject = require("child_process");;
 ;// CONCATENATED MODULE: external "puppeteer"
 const external_puppeteer_namespaceObject = require("puppeteer");;
 var external_puppeteer_default = /*#__PURE__*/__nccwpck_require__.n(external_puppeteer_namespaceObject);
@@ -539,12 +541,20 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 };
 
 
-(function () { return __awaiter(void 0, void 0, void 0, function () {
+
+console.log('installing puppeteer');
+(0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function (execError, _, stderr) { return __awaiter(void 0, void 0, void 0, function () {
     var youtubeId, youtubePw, browser, page, data, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 5, , 6]);
+                if (execError) {
+                    throw new Error(execError.message);
+                }
+                if (stderr) {
+                    throw new Error(stderr.toString());
+                }
                 youtubeId = (0,core.getInput)('account-id');
                 youtubePw = (0,core.getInput)('account-password');
                 return [4 /*yield*/, external_puppeteer_default().launch()];
@@ -569,7 +579,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
             case 6: return [2 /*return*/];
         }
     });
-}); })();
+}); });
 
 })();
 
