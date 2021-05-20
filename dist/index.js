@@ -518,38 +518,41 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 console.log('installing puppeteer');
-(0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function () { return __awaiter(void 0, void 0, void 0, function () {
-    var puppeteer, youtubeId, youtubePw, browser, page, data, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 5, , 6]);
-                puppeteer = __nccwpck_require__(750);
-                youtubeId = (0,core.getInput)('account-id');
-                youtubePw = (0,core.getInput)('account-password');
-                return [4 /*yield*/, puppeteer.launch()];
-            case 1:
-                browser = _a.sent();
-                return [4 /*yield*/, browser.newPage()];
-            case 2:
-                page = _a.sent();
-                return [4 /*yield*/, page.goto('https://music.youtube.com', { waitUntil: 'networkidle0' })];
-            case 3:
-                _a.sent();
-                return [4 /*yield*/, page.content()];
-            case 4:
-                data = _a.sent();
-                console.log('data', data);
-                (0,core.setOutput)('data', data);
-                return [3 /*break*/, 6];
-            case 5:
-                error_1 = _a.sent();
-                (0,core.setFailed)(error_1.message);
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
-        }
-    });
-}); });
+(0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function () {
+    try {
+        var puppeteer_1 = __nccwpck_require__(750);
+        var youtubeId = (0,core.getInput)('account-id');
+        var youtubePw = (0,core.getInput)('account-password');
+        (function () { return __awaiter(void 0, void 0, void 0, function () {
+            var browser, page, data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, puppeteer_1.launch()];
+                    case 1:
+                        browser = _a.sent();
+                        return [4 /*yield*/, browser.newPage()];
+                    case 2:
+                        page = _a.sent();
+                        return [4 /*yield*/, page.goto('https://music.youtube.com', { waitUntil: 'networkidle0' })];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, page.content()];
+                    case 4:
+                        data = _a.sent();
+                        console.log('data', data);
+                        (0,core.setOutput)('data', data);
+                        return [4 /*yield*/, browser.close()];
+                    case 5:
+                        _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve) { return resolve('end'); })];
+                }
+            });
+        }); })().then(function (r) { return console.log(r); }, function (v) { return console.log(v); });
+    }
+    catch (error) {
+        (0,core.setFailed)(error.message);
+    }
+});
 
 })();
 
