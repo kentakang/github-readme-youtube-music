@@ -1,6 +1,6 @@
+/* eslint-disable global-require */
 import { getInput, setFailed, setOutput } from '@actions/core';
 import { exec } from 'child_process';
-import puppeteer from 'puppeteer';
 
 console.log('installing puppeteer');
 exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', async (execError, _, stderr) => {
@@ -13,6 +13,7 @@ exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', async (execError, _
       throw new Error(stderr.toString());
     }
 
+    const puppeteer = require('puppeteer');
     const youtubeId = getInput('account-id');
     const youtubePw = getInput('account-password');
     const browser = await puppeteer.launch();
