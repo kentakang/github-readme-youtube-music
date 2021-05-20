@@ -2,12 +2,12 @@
 import { getInput, setFailed, setOutput } from '@actions/core';
 import { exec } from 'child_process';
 import { Browser, Page } from 'puppeteer';
-import stealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 console.log('installing puppeteer');
 exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', () => {
   try {
     const puppeteer = require('puppeteer');
+    const stealthPlugin = require('puppeteer-extra-plugin-stealth');
     const youtubeId = getInput('account-id');
     const youtubePw = getInput('account-password');
 
