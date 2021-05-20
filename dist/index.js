@@ -411,6 +411,13 @@ module.exports = require("os");;
 
 module.exports = require("path");;
 
+/***/ }),
+
+/***/ 750:
+/***/ ((module) => {
+
+module.exports = require("puppeteer");;
+
 /***/ })
 
 /******/ 	});
@@ -446,35 +453,6 @@ module.exports = require("path");;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -499,9 +477,6 @@ __nccwpck_require__.r(__webpack_exports__);
 var core = __nccwpck_require__(186);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = require("child_process");;
-;// CONCATENATED MODULE: external "puppeteer"
-const external_puppeteer_namespaceObject = require("puppeteer");;
-var external_puppeteer_default = /*#__PURE__*/__nccwpck_require__.n(external_puppeteer_namespaceObject);
 ;// CONCATENATED MODULE: ./src/index.ts
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -539,12 +514,12 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-
+/* eslint-disable global-require */
 
 
 console.log('installing puppeteer');
 (0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function (execError, _, stderr) { return __awaiter(void 0, void 0, void 0, function () {
-    var youtubeId, youtubePw, browser, page, data, error_1;
+    var puppeteer, youtubeId, youtubePw, browser, page, data, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -555,9 +530,10 @@ console.log('installing puppeteer');
                 if (stderr) {
                     throw new Error(stderr.toString());
                 }
+                puppeteer = __nccwpck_require__(750);
                 youtubeId = (0,core.getInput)('account-id');
                 youtubePw = (0,core.getInput)('account-password');
-                return [4 /*yield*/, external_puppeteer_default().launch()];
+                return [4 /*yield*/, puppeteer.launch()];
             case 1:
                 browser = _a.sent();
                 return [4 /*yield*/, browser.newPage()];
