@@ -1,8 +1,18 @@
 import { getInput, setFailed, setOutput } from '@actions/core';
+import { exec } from 'child_process';
 import puppeteer from 'puppeteer';
 
-(async () => {
+console.log('installing puppeteer');
+exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', async (execError, _, stderr) => {
   try {
+    if (execError) {
+      throw new Error(execError.message);
+    }
+
+    if (stderr) {
+      throw new Error(stderr.toString());
+    }
+
     const youtubeId = getInput('account-id');
     const youtubePw = getInput('account-password');
     const browser = await puppeteer.launch();
@@ -17,4 +27,4 @@ import puppeteer from 'puppeteer';
   } catch (error) {
     setFailed(error.message);
   }
-})();
+});
