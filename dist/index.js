@@ -518,18 +518,12 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 console.log('installing puppeteer');
-(0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function (execError, _, stderr) { return __awaiter(void 0, void 0, void 0, function () {
+(0,external_child_process_namespaceObject.exec)('sudo npm i puppeteer --unsafe-perm=true --allow-root', function () { return __awaiter(void 0, void 0, void 0, function () {
     var puppeteer, youtubeId, youtubePw, browser, page, data, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 5, , 6]);
-                if (execError) {
-                    throw new Error(execError.message);
-                }
-                if (stderr) {
-                    throw new Error(stderr.toString());
-                }
                 puppeteer = __nccwpck_require__(750);
                 youtubeId = (0,core.getInput)('account-id');
                 youtubePw = (0,core.getInput)('account-password');
