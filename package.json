@@ -16,7 +16,7 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build": "ncc build src/index.ts -o dist && git add ./dist/** && git commit -m \"Build $npm_package_version\""
+    "build": "ncc build src/index.ts -o dist --source-map -e puppeteer && git add ./dist/** && git commit -m \"Build $npm_package_version\""
   },
   "dependencies": {
     "@actions/core": "^1.2.7",
