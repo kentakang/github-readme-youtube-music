@@ -1,25 +1,20 @@
-import { getInput, setFailed } from '@actions/core';
-import http, { RequestOptions } from 'http';
+import { getInput, setFailed, setOutput } from '@actions/core';
+import puppeteer from 'puppeteer';
 
-try {
-  const youtubeId = getInput('account-id');
-  const youtubePw = getInput('account-password');
-  const requestOptions: RequestOptions = {
-    hostname: 'music.youtube.com',
-    path: '/',
-  };
+(async () => {
+  try {
+    const youtubeId = getInput('account-id');
+    const youtubePw = getInput('account-password');
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
 
-  http.request(requestOptions, (response) => {
-    let serverData = '';
+    await page.goto('https://music.youtube.com', { waitUntil: 'networkidle0' });
 
-    response.on('data', (chunk) => {
-      serverData += chunk;
-    });
+    const data = await page.content();
 
-    response.on('end', () => {
-      console.log(serverData);
-    });
-  });
-} catch (error) {
-  setFailed(error.message);
-}
+    console.log('data', data);
+    setOutput('data', data);
+  } catch (error) {
+    setFailed(error.message);
+  }
+})();
