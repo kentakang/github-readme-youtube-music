@@ -497,7 +497,6 @@ __nccwpck_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(186);
-var core_default = /*#__PURE__*/__nccwpck_require__.n(core);
 ;// CONCATENATED MODULE: external "http"
 const external_http_namespaceObject = require("http");;
 var external_http_default = /*#__PURE__*/__nccwpck_require__.n(external_http_namespaceObject);
@@ -505,8 +504,8 @@ var external_http_default = /*#__PURE__*/__nccwpck_require__.n(external_http_nam
 
 
 try {
-    var youtubeId = core_default().getInput('account-id');
-    var youtubePw = core_default().getInput('account-password');
+    var youtubeId = (0,core.getInput)('account-id');
+    var youtubePw = (0,core.getInput)('account-password');
     var requestOptions = {
         hostname: 'music.youtube.com',
         path: '/',
@@ -522,7 +521,7 @@ try {
     });
 }
 catch (error) {
-    core_default().setFailed(error.message);
+    (0,core.setFailed)(error.message);
 }
 
 })();
