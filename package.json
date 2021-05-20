@@ -23,5 +23,8 @@
     "@actions/github": "^5.0.0",
     "puppeteer": "^9.1.1",
     "puppeteer-extra-plugin-stealth": "^2.7.8"
+  },
+  "resolutions": {
+    "clone-deep": "4.0.1"
   }
 }

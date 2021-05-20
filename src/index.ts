@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import { getInput, setFailed, setOutput } from '@actions/core';
+import { getInput, setFailed } from '@actions/core';
 import { exec } from 'child_process';
 import { Browser, Page } from 'puppeteer';
 
