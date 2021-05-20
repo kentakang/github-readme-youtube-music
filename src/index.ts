@@ -1,6 +1,8 @@
 /* eslint-disable global-require */
 import { getInput, setFailed, setOutput } from '@actions/core';
 import { exec } from 'child_process';
+import { Browser, Page } from 'puppeteer';
+import stealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 console.log('installing puppeteer');
 exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', () => {
@@ -9,16 +11,24 @@ exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', () => {
     const youtubeId = getInput('account-id');
     const youtubePw = getInput('account-password');
 
-    (async () => {
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
+    puppeteer.use(stealthPlugin());
 
-      await page.goto('https://music.youtube.com', { waitUntil: 'networkidle0' });
+    (async () => {
+      const browser: Browser = await puppeteer.launch({ headless: true });
+      const page: Page = await browser.newPage();
+
+      // Login Process
+      await page.goto('https://accounts.google.com/signin/v2/identifier', { waitUntil: 'networkidle2' });
+      await page.waitForSelector('#identifierId');
+      await page.type('input[type="email"]', youtubeId);
+      await page.keyboard.press('Enter');
+      await page.waitForSelector('input[type="password"]');
+      await page.type('input[type="password"]', youtubePw);
+      await page.keyboard.press('Enter');
 
       const data = await page.content();
 
       console.log('data', data);
-      setOutput('data', data);
 
       await browser.close();
 
