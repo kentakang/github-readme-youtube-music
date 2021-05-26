@@ -4,9 +4,9 @@ import { exec } from 'child_process';
 import { Browser, Page } from 'puppeteer';
 
 console.log('installing puppeteer');
-exec('sudo npm i puppeteer puppeteer-extra-plugin-stealth --unsafe-perm=true --allow-root', () => {
+exec('sudo npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth --unsafe-perm=true --allow-root', () => {
   try {
-    const puppeteer = require('puppeteer');
+    const puppeteer = require('puppeteer-extra');
     const stealthPlugin = require('puppeteer-extra-plugin-stealth');
     const youtubeId = getInput('account-id');
     const youtubePw = getInput('account-password');
