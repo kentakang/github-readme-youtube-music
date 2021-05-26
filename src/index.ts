@@ -30,25 +30,7 @@ exec('sudo npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth --unsa
       // Go to youtube music history
       await page.goto('https://music.youtube.com/history');
 
-      const filename = `${new Date()}.png`;
-
-      page.screenshot({
-        path: `../screenshots/${filename}`,
-      });
-
-      await exec('git', [
-        'config',
-        '--global',
-        'user.email',
-        'readme-bot@example.com',
-      ]);
-      await exec('git', ['config', '--global', 'user.name', 'readme-bot']);
-      await exec('git', ['add', `./screenshots/${filename}`]);
-      await exec('git', [
-        'commit',
-        '-m',
-        ':zap: update screenshot',
-      ]);
+      console.log('title', page.title);
 
       await browser.close();
 

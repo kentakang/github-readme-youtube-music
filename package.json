@@ -19,7 +19,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "build": "webpack && git add ./dist/** && git commit -m \"Build $npm_package_version\""
+    "build": "webpack"
   },
   "dependencies": {
     "@actions/core": "^1.2.7",
