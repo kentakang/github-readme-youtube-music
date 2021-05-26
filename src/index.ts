@@ -3,8 +3,8 @@ import { getInput, setFailed } from '@actions/core';
 import { exec } from 'child_process';
 import { Browser, Page } from 'puppeteer';
 
-console.log('installing puppeteer');
-exec('sudo npm i puppeteer --unsafe-perm=true --allow-root', () => {
+console.log('installing dependencies');
+exec('sudo npm install --unsafe-perm=true --allow-root', () => {
   try {
     const puppeteer = require('puppeteer');
     const stealthPlugin = require('puppeteer-extra-plugin-stealth');
