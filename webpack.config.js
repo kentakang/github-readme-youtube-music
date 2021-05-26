@@ -28,6 +28,6 @@ module.exports = {
     ],
   },
   externals: nodeExternals({
-    allowlist: ['@actions/core', '@actions/github', 'puppeteer-extra-plugin-stealth'],
+    allowlist: ['@actions/core', '@actions/github', 'puppeteer-extra-plugin', 'puppeteer-extra-plugin-stealth'],
   }),
 };

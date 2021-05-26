@@ -1,0 +1,5 @@
+/*!
+ * puppeteer-extra-plugin v3.1.8 by berstend
+ * https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin
+ * @license MIT
+ */
