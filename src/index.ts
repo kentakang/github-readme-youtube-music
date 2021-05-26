@@ -25,10 +25,13 @@ exec('sudo npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth --unsa
       await page.waitForSelector('input[type="password"]');
       await page.type('input[type="password"]', youtubePw);
       await page.keyboard.press('Enter');
+      await page.content();
 
-      const data = await page.content();
+      // Go to youtube music history
+      await page.goto('https://music.youtube.com/history');
+      const historyData = await page.content();
 
-      console.log('data', data);
+      console.log(historyData);
 
       await browser.close();
 
