@@ -9,22 +9,22 @@
     "@types/node": "^15.3.0",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
-    "@vercel/ncc": "^0.28.5",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.2",
-    "typescript": "^4.2.4"
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "build": "ncc build src/index.ts -o dist --source-map -e puppeteer && git add ./dist/** && git commit -m \"Build $npm_package_version\""
+    "build": "webpack && git add ./dist/** && git commit -m \"Build $npm_package_version\""
   },
   "dependencies": {
     "@actions/core": "^1.2.7",
     "@actions/github": "^5.0.0",
     "puppeteer": "^9.1.1",
     "puppeteer-extra-plugin-stealth": "^2.7.8"
-  },
-  "resolutions": {
-    "clone-deep": "4.0.1"
   }
 }
