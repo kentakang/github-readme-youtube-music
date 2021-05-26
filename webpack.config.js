@@ -27,5 +27,7 @@ module.exports = {
       },
     ],
   },
-  externals: nodeExternals(),
+  externals: nodeExternals({
+    allowlist: ['@actions/core', '@actions/github', 'puppeteer-extra-plugin-stealth'],
+  }),
 };
