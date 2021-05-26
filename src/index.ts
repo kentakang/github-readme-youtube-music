@@ -29,8 +29,9 @@ exec('sudo npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth --unsa
 
       // Go to youtube music history
       await page.goto('https://music.youtube.com/history');
+      const title = await page.title();
 
-      console.log('title', page.title);
+      console.log('title', title);
 
       await browser.close();
 
